@@ -1,0 +1,129 @@
+body {
+  background-color: #f5f9fe;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+header {
+  background: #f5f9fe;
+  box-shadow: 0 2px 4px #e2ebfc;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  transition: 0.3s;
+  color: #2a73dd;
+}
+header .logo:hover {
+  font-size: 40px;
+}
+header a {
+  transition: 0.3s;
+  position: relative;
+  padding: 0 10px;
+}
+header a:hover {
+  color: #2a73dd;
+}
+header a.active {
+  color: #2a73dd;
+}
+header a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #2a73dd;
+  transition: 0.3s;
+}
+header a:hover::before, header a.active::before {
+  width: 100%;
+}
+
+.banner {
+  background: url("/image/product-header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.banner h2 {
+  color: #2a73dd;
+  font-weight: 500;
+}
+.banner h3 {
+  color: #1d365e;
+  font-weight: 400;
+}
+.banner .info {
+  border: 1px solid #2a73dd;
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-size: 14px;
+  color: #2a73dd;
+  border-color: #2a73dd;
+  margin-right: 10px;
+}
+.banner .info:hover {
+  color: #f5f9fe;
+  background: #2a73dd;
+}
+.banner .shop {
+  border: 1px solid #2a73dd;
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-size: 14px;
+  color: #f5f9fe;
+  background: #2a73dd;
+}
+
+.product img {
+  width: 100%;
+}
+.product .product-card {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.product i {
+  color: #f9d412;
+}
+.product .card-body {
+  color: #1d365e;
+  font-weight: 500;
+  margin-top: 20px;
+  line-height: 30px;
+}
+.product .card-bottom {
+  color: #2a73dd;
+  margin-top: 10px;
+}
+.product .card-item {
+  background: #f5f9fe;
+}
+.product button {
+  padding: 0 10px;
+}
+.product .product-title {
+  margin: 60px 0;
+}
+.product .product-title h3 {
+  font-size: 40px;
+  color: #1d365e;
+}
+
+footer {
+  background: url("/image/product-header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: #f5f9fe;
+}/*# sourceMappingURL=index.css.map */

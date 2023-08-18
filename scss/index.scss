@@ -1,0 +1,152 @@
+$color-blue-1: #2a73dd;
+$color-blue-2: #1d365e;
+$color-white-1: #f5f9fe;
+$color-white-2: #e2ebfc;
+$color-yellow-1: #f9d412;
+
+//mixin <=> function
+@mixin btnTheme($textColor) {
+    border: 1px solid $color-blue-1;
+    border-radius: 8px;
+    padding: 15px 35px;
+    font-size: 14px;
+    color: $textColor;
+}
+
+body {
+    background-color: $color-white-1;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+// nested
+header {
+    background: $color-white-1;
+    box-shadow: 0 2px 4px $color-white-2;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        transition: 0.3s;
+        color: $color-blue-1;
+
+        &:hover {
+            font-size: 40px;
+        }
+    }
+
+    a {
+        transition: 0.3s;
+        position: relative;
+        padding: 0 10px;
+
+        &:hover {
+            color: $color-blue-1;
+        }
+
+        &.active {
+            color: $color-blue-1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: $color-blue-1;
+            transition: 0.3s;
+        }
+
+        &:hover::before,
+        &.active::before {
+            width: 100%;
+        }
+    }
+}
+
+.banner {
+    background: url("/image/product-header-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    h2 {
+        color: $color-blue-1;
+        font-weight: 500;
+    }
+
+    h3 {
+        color: $color-blue-2;
+        font-weight: 400;
+    }
+    .info {
+        @include btnTheme($color-blue-1);
+        border-color: $color-blue-1;
+        &:hover {
+            color: $color-white-1;
+            background: $color-blue-1;
+        }
+        margin-right: 10px;
+    }
+
+    .shop {
+        @include btnTheme($color-white-1);
+        background: $color-blue-1;
+    }
+}
+
+.product {
+    img {
+        width: 100%;
+    }
+    .product-card {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    i {
+        color: $color-yellow-1 ;
+    }
+    .card-body {
+        color: $color-blue-2;
+        font-weight: 500;
+        margin-top: 20px;
+        line-height: 30px;
+    }
+    .card-bottom {
+        color: $color-blue-1;
+        margin-top: 10px;
+
+    }
+    .card-item{
+        background: $color-white-1;
+    }
+    button {
+        padding: 0 10px;
+    }
+
+    .product-title {
+        margin: 60px 0;
+        h3{
+            font-size: 40px;
+            color: $color-blue-2;
+        }
+    }
+}
+footer {
+    background: url("/image/product-header-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    color: $color-white-1;
+}
