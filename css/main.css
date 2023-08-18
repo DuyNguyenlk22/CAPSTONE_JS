@@ -196,4 +196,33 @@ footer .footer__content .footer__info3 li {
 }
 footer .footer__end {
   padding: 30px 0;
+}
+
+.table__product .table__title {
+  background-color: #138496;
+  color: white;
+  padding: 30px 15px;
+  border-radius: 20px 20px 0 0;
+}
+.table__product .table__title h1 {
+  font-size: 30px;
+}
+.table__product .table__title button {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: #ccc;
+  color: #000;
+  transition: 0.5s;
+}
+.table__product .table__title button:hover {
+  opacity: 0.8;
+}
+.table__product .table__title #modal {
+  background-color: #f8efec;
+}
+.table__product .table__title input,
+.table__product .table__title select {
+  height: 30px;
+  width: 100%;
+  margin: 10px 0;
 }/*# sourceMappingURL=main.css.map */

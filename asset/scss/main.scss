@@ -206,3 +206,35 @@ footer {
         padding: 30px 0;
     }
 }
+
+// ADMIN
+.table__product {
+    .table__title {
+        background-color: #138496;
+        color: white;
+        padding: 30px 15px;
+        border-radius: 20px 20px 0 0;
+        h1 {
+            font-size: 30px;
+        }
+        button {
+            padding: 12px 15px;
+            border-radius: 8px;
+            background-color: #ccc;
+            color: $color-black-1;
+            transition: 0.5s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        #modal {
+            background-color: #f8efec;
+        }
+        input,
+        select {
+            height: 30px;
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+}
