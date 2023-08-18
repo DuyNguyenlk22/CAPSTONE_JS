@@ -4,19 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Capstone</title>
+
+    <!-- tailwind -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css"
+      integrity="sha512-braXHF1tCeb8MzPktmUHhrjZBSZknHvjmkUdkAbeqtIrWwCchhcpUeAf2Sq3yIq1Q1x5PlroafjceOUbIE3Q5g=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+    <!-- fontawsome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- my css -->
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <header class="fixed top-0 left-0 w-full">
+      <div class="container h-20 flex justify-between items-center">
+        <div class="header__left flex justify-around items-center space-x-10">
+          <div class="header__logo flex text-xl">
+            <i class="fa-brands fa-squarespace mr-5 text-2xl"></i>
+            <p>Cyber Phone</p>
+          </div>
+          <nav class="flex space-x-14">
+            <div class="home__page flex flex-col items-center">
+              <i class="fa-solid fa-house"></i>
+              <a href="#">Home</a>
+            </div>
+            <div class="admin__page flex flex-col items-center">
+              <i class="fa-solid fa-gear"></i>
+              <a href="">Admin</a>
+            </div>
+          </nav>
+        </div>
+        <div class="header__right flex flex-col items-center">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="#">Cart</a>
+        </div>
+      </div>
+    </header>
+    <section class="banner">
+      <div class="container grid grid-cols-4 gap-4">
+        <div class="banner__left flex flex-col justify-center items-center">
+          <h1>GALAXY Z FOLD5</h1>
+          <div>
+            <p class="text-sm text-justify">
+              Meet the phone with a big screen like a mobile movie theatre. The
+              one that's both an exciting game console and a multi-screen,
+              multitasking workhorse. And topped off with a powerful, pro-grade
+              camera. All folded into your hands.
+            </p>
+          </div>
+          <div class="mt-5">
+            <span>Read more</span>
+            <button>Buy now</button>
+          </div>
+        </div>
+        <div class="banner__img col-span-2">
+          <img
+            src="./asset/img/001-galaxy-zflip5-zfold5-press-release.jpg"
+            alt=""
+            class="w-full"
+          />
+        </div>
+        <div class="banner__right flex flex-col justify-center items-center">
+          <h1>GALAXY Z FLIP5</h1>
+          <div>
+            <p class="text-sm text-justify">
+              A perfect fit — both in life and your pocket. A brilliant Flex
+              Window you can customise. A camera that captures selfies from edgy
+              angles. Plus, a battery that keeps up.
+            </p>
+          </div>
+          <div class="mt-5">
+            <span>Read more</span>
+            <button>Buy now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="product py-10">
+      <div class="container">
+        <select name="" id="brands" class="select__list w-64">
+          <option value="">All Brands</option>
+          <option value="Apple">Apple</option>
+          <option value="Sam-Sung">Sam Sung</option>
+        </select>
+        <div class="product__list grid grid-cols-4 gap-7">
+          <div class="product__item">
+            <div class="product__info">
+              <img
+                src="https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg"
+                alt=""
+                class="w-full"
+              />
+              <h3 class="text-center font-bold text-xl">iPhone X</h3>
+              <p class="text-center">1000$</p>
+              <span class="brand">Apple</span>
+              <p>
+                <span class="font-semibold">Description:</span>Lorem, ipsum
+                dolor.
+              </p>
+            </div>
+            <div class="product__desc flex flex-col justify-evenly">
+              <h2>Specifications</h2>
+              <div class="extra__desc">
+                <p><span>Screen :</span> Lorem, ipsum dolor.</p>
+                <p><span>Back Camera :</span> Lorem, ipsum dolor.</p>
+                <p><span>Front Camera :</span> Lorem, ipsum dolor.</p>
+              </div>
+              <a href="#">Click here for more details</a>
+              <div class="btn__addCart flex flex-col items-center">
+                <button>Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="./customer/controller/main.js"></script>
   </body>
 </html>
