@@ -170,4 +170,30 @@ header .header__right .cart__bottom button:hover {
 }
 .product .product__list .product__item .product__desc .extra__desc span {
   font-weight: 500;
+}
+
+footer {
+  background-color: #0e1b1f;
+}
+footer .footer__content {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+footer .footer__content span {
+  display: block;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+footer .footer__content li {
+  padding-top: 5px;
+  margin-bottom: 15px;
+}
+footer .footer__content .footer__info3 i {
+  margin-right: 10px;
+}
+footer .footer__content .footer__info3 li {
+  list-style-type: none;
+}
+footer .footer__end {
+  padding: 30px 0;
 }/*# sourceMappingURL=main.css.map */
