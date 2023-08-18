@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.container {
+body .container {
   width: 80%;
   margin: 0 auto;
 }
@@ -12,18 +12,42 @@
 header {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  z-index: 2;
 }
 header nav {
   cursor: pointer;
 }
 header nav .home__page,
 header nav .admin__page {
-  transition: 0.3s;
+  transition: 0.5s;
 }
 header nav .home__page:hover,
 header nav .admin__page:hover {
   transform: scale(1.2);
   font-weight: 600;
+}
+header .header__right #btn__cart {
+  transition: 0.5s;
+}
+header .header__right #btn__cart:hover {
+  transform: scale(1.2);
+}
+header .header__right .cart__bottom p {
+  color: #000;
+  font-weight: 600;
+}
+header .header__right .cart__bottom button {
+  margin: 2px 0 0 8px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  background-color: #5f9db8;
+  color: white;
+  transition: 0.3s;
+}
+header .header__right .cart__bottom button:hover {
+  opacity: 0.6;
 }
 
 .banner {

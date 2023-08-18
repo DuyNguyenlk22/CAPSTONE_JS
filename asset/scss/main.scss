@@ -6,7 +6,7 @@ $color-yellow-1: #f0b70e;
     margin: 0;
     box-sizing: border-box;
 }
-.container {
+body .container {
     width: 80%;
     margin: 0 auto;
 }
@@ -19,14 +19,43 @@ $color-yellow-1: #f0b70e;
 header {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    z-index: 2;
     nav {
         cursor: pointer;
         .home__page,
         .admin__page {
-            transition: 0.3s;
+            transition: 0.5s;
             &:hover {
                 transform: scale(1.2);
                 font-weight: 600;
+            }
+        }
+    }
+    .header__right {
+        #btn__cart {
+            transition: 0.5s;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        .cart__bottom {
+            p {
+                color: #000;
+                font-weight: 600;
+            }
+            button {
+                margin: 2px 0 0 8px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 50%;
+                background-color: #5f9db8;
+                color: white;
+                transition: 0.3s;
+                &:hover {
+                    opacity: 0.6;
+                }
             }
         }
     }

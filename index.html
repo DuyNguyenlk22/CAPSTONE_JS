@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Capstone</title>
-
+    <!-- Tailwind Elements styles-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+    />
+    <!-- Tailwind CSS config -->
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
     <!-- tailwind -->
     <link
       rel="stylesheet"
@@ -43,9 +49,106 @@
             </div>
           </nav>
         </div>
-        <div class="header__right flex flex-col items-center">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <a href="#">Cart</a>
+        <div class="header__right">
+          <button
+            id="btn__cart"
+            class="mr-1.5 flex flex-col items-center font-medium uppercase leading-normal text-white transition duration-150 ease-in-out"
+            type="button"
+            data-te-offcanvas-toggle
+            data-te-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+          >
+            <i class="fa-solid fa-cart-shopping text-2xl"></i>
+          </button>
+
+          <div
+            class="invisible fixed bottom-0 right-0 top-20 z-[1045] w-96 max-w-full translate-x-full border-none bg-white bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out [&[data-te-offcanvas-show]]:transform-none"
+            tabindex="-1"
+            id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel"
+            data-te-offcanvas-init
+          >
+            <div class="p-4">
+              <h5
+                class="mb-0 font-semibold leading-normal text-center text-black text-2xl"
+                id="offcanvasRightLabel"
+              >
+                Shopping Cart
+              </h5>
+              <p class="text-gray-300 text-center">
+                An overview of your selected products.
+              </p>
+              <div class="cart__product flex mt-5 mb-3">
+                <div class="cart__img w-1/3">
+                  <img
+                    src="./asset/img/001-galaxy-zflip5-zfold5-press-release.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="cart__desc w-2/3 ml-3">
+                  <div class="desc__product text-black text-xs">
+                    <p>Screen : Lorem, ipsum dolor.</p>
+                    <p>Back Camera : Lorem, ipsum dolor.</p>
+                    <p>Front Camera :Lorem, ipsum dolor.</p>
+                    <a href="#" class="text-red-500 underline">Remove</a>
+                  </div>
+                </div>
+              </div>
+              <div class="cart__bottom flex justify-between">
+                <div class="cart__quantity flex">
+                  <p>Quantity :</p>
+                  <button>-</button>
+                  <p class="mx-4">1</p>
+                  <button>+</button>
+                </div>
+                <div class="cart__price">
+                  <p>1000$</p>
+                </div>
+              </div>
+            </div>
+            <div class="offcanvas-body overflow-y-auto">
+              <div
+                class="cart__info bg-gray-400 grid grid-cols-3 gap-3 mt-10 py-10 px-4"
+              >
+                <div class="cart__left col-span-2">
+                  <p>Subtotal</p>
+                  <p>Shipping</p>
+                  <p>Tax</p>
+                  <span>Total</span>
+                  <div class="flex justify-between space-x-3 pt-6">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-yellow-400 px-2 pb-2 pt-2.5 text-xs font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-yellow-600"
+                    >
+                      Continue Shopping
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-red-400 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-red-600"
+                    >
+                      Empty Cart
+                    </button>
+                  </div>
+                </div>
+                <div class="cart__right text-right">
+                  <p>0$</p>
+                  <p>0$</p>
+                  <p>0$</p>
+                  <span>0$</span>
+                  <div class="flex justify-end pt-6">
+                    <button
+                      type="button"
+                      class="inline-block rounded bg-blue-600 px-6 pb-4 pt-4 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600"
+                    >
+                      Pay Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -129,6 +232,16 @@
       </div>
     </section>
 
+    <!-- offcanvas sidebar cart js -->
+    <script>
+      // Initialization for ES Users
+      import { Offcanvas, Ripple, initTE } from "tw-elements";
+
+      initTE({ Offcanvas, Ripple });
+    </script>
+    <!-- Tailwind Elements JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <!-- my js -->
     <script src="./customer/controller/main.js"></script>
   </body>
 </html>
