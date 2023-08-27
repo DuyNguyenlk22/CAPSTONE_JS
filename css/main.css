@@ -28,9 +28,19 @@ header nav .admin__page:hover {
 }
 header .header__right #btn__cart {
   transition: 0.5s;
+  position: relative;
 }
 header .header__right #btn__cart:hover {
   transform: scale(1.2);
+}
+header .header__right #btn__cart .noti {
+  position: absolute;
+  background-color: #ef5858;
+  padding: 3px 6px;
+  line-height: 12px;
+  top: -8px;
+  right: -15px;
+  border-radius: 10px;
 }
 header .header__right .cart__bottom p {
   color: #000;

@@ -34,8 +34,18 @@ header {
     .header__right {
         #btn__cart {
             transition: 0.5s;
+            position: relative;
             &:hover {
                 transform: scale(1.2);
+            }
+            .noti {
+                position: absolute;
+                background-color: #ef5858;
+                padding: 3px 6px;
+                line-height: 12px;
+                top: -8px;
+                right: -15px;
+                border-radius: 10px;
             }
         }
 
