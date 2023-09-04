@@ -5,6 +5,7 @@ let deletePhone = (id) => {
   axios
     .delete(`${BASE_URL}/${id}`)
     .then((res) => {
+      console.log("🚀 ~ file: main.js:8 ~ .then ~ res:", res);
       fetchPhoneList();
       showMessage("Xoá Thành Công !!!");
     })
@@ -52,6 +53,7 @@ let addPhone = () => {
       document.getElementById("close-button").click();
       fetchPhoneList();
       showMessage("Thêm Thành Công !!!");
+      document.getElementById("formProduct").reset();
     })
     .catch((err) => {
       console.log(err);
@@ -139,6 +141,7 @@ let timNhanVien = () => {
 //     });
 // };
 let sapXepGiamDan = () => {
+  location.reload();
   let mangSPTheoGiaTien = dsProduct1.sort((a, b) => {
     return b.price - a.price;
   });
@@ -146,6 +149,7 @@ let sapXepGiamDan = () => {
 };
 
 let sapXepTangDan = () => {
+  location.reload();
   let mangSPTheoGiaTien = dsProduct1.sort((a, b) => {
     return a.price - b.price;
   });

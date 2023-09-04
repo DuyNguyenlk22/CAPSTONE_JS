@@ -1,5 +1,6 @@
 const BASE_URL = "https://64d6fadf2a017531bc12e6f4.mockapi.io/product";
 let dsProduct = [];
+console.log("🚀 ~ file: main.js:3 ~ dsProduct:", dsProduct);
 
 let cart = [];
 console.log("🚀 ~ file: main.js:2 ~ dsProduct:", dsProduct);

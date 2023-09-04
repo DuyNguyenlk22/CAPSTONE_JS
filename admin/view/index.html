@@ -146,7 +146,11 @@
                     </div>
 
                     <!--Modal body-->
-                    <div data-te-modal-body-ref class="relative p-8 text-black">
+                    <form
+                      id="formProduct"
+                      data-te-modal-body-ref
+                      class="relative p-8 text-black"
+                    >
                       <div class="form-group">
                         <label for="">ID</label>
                         <input
@@ -251,7 +255,7 @@
                         class="sp-thongbao text-red-600"
                         id="tbSelect"
                       ></span>
-                    </div>
+                    </form>
 
                     <!--Modal footer-->
                     <div
@@ -479,7 +483,13 @@
     <!-- Tailwind Elements JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- toastify -->
     <script
       type="text/javascript"

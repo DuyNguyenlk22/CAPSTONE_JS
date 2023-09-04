@@ -31,8 +31,8 @@ let fetchPhoneList = () => {
     method: "GET",
   })
     .then((res) => {
-      renderPhoneList(res.data);
       dsProduct1.push(...res.data);
+      renderPhoneList(res.data);
     })
     .catch((err) => {
       console.log(err);
