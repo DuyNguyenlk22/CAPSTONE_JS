@@ -11,7 +11,7 @@ let renderPhoneList = (list) => {
                             <td class="text-center">${id}</td>
                             <td class="text-center">${name}</td>
                             <td class="text-center">${price}</td>
-                            <td class="flex flex-col items-center pb-3">
+                            <td class="flex flex-col items-center py-3">
                             <img class="w-1/3" src=${img} alt="">
                             </td>
                             <td>${desc}</td>
