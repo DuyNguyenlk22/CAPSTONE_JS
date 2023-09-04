@@ -294,6 +294,9 @@ footer .footer__end {
     width: 90%;
   }
   body .product .product__list .product__item .product__desc h2 {
-    font-size: 25px;
+    font-size: 18px;
+  }
+  body .product .product__list .product__item .product__desc p {
+    font-size: 14px;
   }
 }/*# sourceMappingURL=main.css.map */
