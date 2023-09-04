@@ -141,7 +141,6 @@ let timNhanVien = () => {
 //     });
 // };
 let sapXepGiamDan = () => {
-  location.reload();
   let mangSPTheoGiaTien = dsProduct1.sort((a, b) => {
     return b.price - a.price;
   });
@@ -149,7 +148,6 @@ let sapXepGiamDan = () => {
 };
 
 let sapXepTangDan = () => {
-  location.reload();
   let mangSPTheoGiaTien = dsProduct1.sort((a, b) => {
     return a.price - b.price;
   });
