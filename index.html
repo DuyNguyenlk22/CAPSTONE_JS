@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Capstone</title>
     <!-- Tailwind Elements styles-->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
-    />
+    /> -->
     <!-- Tailwind CSS config -->
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
     <!-- tailwind -->
@@ -38,14 +38,16 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <header class="fixed top-0 left-0 w-full">
-      <div class="container h-20 flex justify-between items-center">
-        <div class="header__left flex justify-around items-center space-x-10">
+    <header class="sticky top-0 left-0 right-0">
+      <div class="container py-6 flex justify-between items-center">
+        <div
+          class="header__left flex justify-evenly items-center lg:space-x-10 sm:space-x-4"
+        >
           <div class="header__logo flex text-xl">
             <i class="fa-brands fa-squarespace mr-5 text-2xl"></i>
             <p>Cyber Phone</p>
           </div>
-          <nav class="flex space-x-14">
+          <nav class="flex sm:space-x-14">
             <div class="home__page flex flex-col items-center">
               <i class="fa-solid fa-house"></i>
               <a href="#">Home</a>
@@ -59,7 +61,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
         <div class="header__right">
           <button
             id="btn__cart"
-            class="mr-1.5 flex flex-col items-center font-medium uppercase leading-normal text-white transition duration-150 ease-in-out"
+            class="mr-4 pt-5 font-medium uppercase leading-normal text-white transition duration-150 ease-in-out"
             type="button"
             data-te-offcanvas-toggle
             data-te-target="#offcanvasRight"
@@ -72,13 +74,19 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
           </button>
 
           <div
-            class="invisible fixed bottom-0 right-0 top-20 z-[1045] w-96 max-w-full translate-x-full border-none bg-white bg-clip-padding overflow-y-scroll transition duration-300 ease-in-out [&[data-te-offcanvas-show]]:transform-none"
+            class="invisible fixed bottom-0 right-0 top-0 z-[1045] w-96 max-w-full translate-x-full border-none bg-white bg-clip-padding overflow-y-scroll transition duration-300 ease-in-out [&[data-te-offcanvas-show]]:transform-none"
             tabindex="-1"
             id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel"
             data-te-offcanvas-init
           >
             <div class="p-4">
+              <div class="text-right">
+                <i
+                  id="closeCart"
+                  class="fa-solid fa-xmark text-slate-700 hover:scale-125 duration-1000 cursor-pointer"
+                ></i>
+              </div>
               <h5
                 class="mb-0 font-semibold leading-normal text-center text-black text-2xl"
                 id="offcanvasRightLabel"
@@ -156,7 +164,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
                     <button
                       onclick="payCart()"
                       type="button"
-                      class="inline-block rounded bg-blue-600 px-6 pb-4 pt-4 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600"
+                      class="inline-block rounded bg-blue-600 px-6 pb-4 pt-4 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-800"
                     >
                       Pay Now
                     </button>
@@ -169,9 +177,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
       </div>
     </header>
     <section class="banner">
-      <div class="container grid grid-cols-4 gap-4">
+      <div class="container lg:grid grid-cols-4 gap-4">
         <div class="banner__left flex flex-col justify-center items-center">
-          <h1>GALAXY Z FOLD5</h1>
+          <h1 class="mb-3">GALAXY Z FOLD5</h1>
           <div>
             <p class="text-sm text-justify">
               Meet the phone with a big screen like a mobile movie theatre. The
@@ -189,11 +197,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
           <img
             src="./asset/img/001-galaxy-zflip5-zfold5-press-release.jpg"
             alt=""
-            class="w-full"
+            class="md:w-full"
           />
         </div>
         <div class="banner__right flex flex-col justify-center items-center">
-          <h1>GALAXY Z FLIP5</h1>
+          <h1 class="mb-7">GALAXY Z FLIP5</h1>
           <div>
             <p class="text-sm text-justify">
               A perfect fit — both in life and your pocket. A brilliant Flex
@@ -208,7 +216,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
         </div>
       </div>
     </section>
-    <section class="product py-10">
+    <section class="product pt-10">
       <div class="container">
         <h1 class="text-center text-4xl mb-10 font-bold">
           --FEATURE PRODUCT--

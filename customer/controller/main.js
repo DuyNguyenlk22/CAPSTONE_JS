@@ -50,6 +50,7 @@ function changeList() {
 let deleteItem = (id) => {
   let index = findIndex(id, cart);
   cart.splice(index, 1);
+  countProduct();
   renderCart(cart);
   let jsonData = JSON.stringify(cart);
   localStorage.setItem("list", jsonData);
@@ -78,5 +79,10 @@ let payCart = () => {
 
 //countinue shopping
 document.getElementById("countinue").addEventListener("click", () => {
+  document.getElementById("btn__cart").click();
+});
+
+// button close in cart
+document.getElementById("closeCart").addEventListener("click", () => {
   document.getElementById("btn__cart").click();
 });

@@ -3,7 +3,7 @@ let renderProductList = (list) => {
   list.forEach((item) => {
     let { id, name, price, screen, backCamera, frontCamera, img, desc, type } =
       item;
-    let theDiv = `<div class="product__item" id="productItem-${id}">
+    let theDiv = /*html*/ `<div class="product__item" id="productItem-${id}">
         <div class="product__info">
           <img
             src="${img}"
@@ -36,28 +36,34 @@ let renderProductList = (list) => {
 };
 
 let addProductToCart = (id) => {
-  let selectItem = id;
+  console.log("🚀 ~ file: controller.js:39 ~ addProductToCart ~ id:", id);
+  // let selectItem = id;
 
-  let search = cart.find((x) => x.id === selectItem);
-  console.log(
-    "🚀 ~ file: controller.js:47 ~ addProductToCart ~ search:",
-    search
-  );
+  // let search = cart.find((x) => x.id === selectItem);
+  // console.log(
+  //   "🚀 ~ file: controller.js:47 ~ addProductToCart ~ search:",
+  //   search
+  // );
 
-  if (search === undefined) {
-    let cartItem1 = {
-      id: selectItem,
-      product: dsProduct[selectItem - 1],
-      quantity: 1,
-    };
+  // if (search === undefined) {
+  //   let cartItem1 = {
+  //     id: selectItem,
+  //     product: dsProduct[selectItem - 1],
+  //     quantity: 1,
+  //   };
+  //   cart.push(cartItem1);
+  // } else {
+  //   search.quantity += 1;
+  // }
+  let index = findIndex(id, cart);
+  console.log("🚀 ~ file: controller.js:61 ~ index ~ index:", index);
+  if (index == -1) {
+    let cartItem1 = { ...dsProduct[id - 1], quantity: 1 };
     cart.push(cartItem1);
+    console.log("🚀 ~ file: controller.js:65 ~ addProductToCart ~ cart:", cart);
   } else {
-    search.quantity += 1;
+    cart[index].quantity += 1;
   }
-  console.log(
-    "🚀 ~ file: controller.js:40 ~ addProductToCart ~ selectItem:",
-    cart
-  );
 
   countProduct();
   renderCart(cart);
@@ -76,21 +82,22 @@ let renderCart = (list) => {
   let subBill = 0;
   let totalBill = 0;
   list.forEach((item) => {
-    let { id, product, quantity } = item;
-    let info = `
+    let { id, img, name, backCamera, frontCamera, price, screen, quantity } =
+      item;
+    let info = /*html*/ `
     <div class="cart__item-${id}">
                   <div class="cart__product flex mt-5 mb-3">
                     <div class="cart__img w-1/3">
                       <img
-                        src=${product.img}
+                        src=${img}
                       />
                     </div>
                     <div class="cart__desc w-2/3 ml-3">
                       <div class="desc__product text-black text-xs">
-                        <h3 class="font-semibold">${product.name}</h3>
-                        <p>Screen : ${product.screen}</p>
-                        <p>Back Camera : ${product.backCamera}</p>
-                        <p>Front Camera :${product.frontCamera}</p>
+                        <h3 class="font-semibold">${name}</h3>
+                        <p>Screen : ${screen}</p>
+                        <p>Back Camera : ${backCamera}</p>
+                        <p>Front Camera :${frontCamera}</p>
                         <a  class="text-red-500 underline cursor-pointer" onclick = "deleteItem(${id})">Remove</a>
                       </div>
                     </div>
@@ -103,13 +110,13 @@ let renderCart = (list) => {
                       <button onclick="increment(${id})">+</button>
                     </div>
                     <div class="cart__price rounded inline-block p-1 bg-gray-300">
-                      <p>$${(product.price * quantity).toLocaleString()}</p>
+                      <p>$${(price * quantity).toLocaleString()}</p>
                     </div>
                   </div>
                 </div>
     `;
     contentCart += info;
-    subBill += product.price * quantity;
+    subBill += price * quantity;
     totalBill = subBill * (1 + 0.1) + 10;
   });
   document.getElementById("subTotal").innerHTML =
@@ -120,11 +127,18 @@ let renderCart = (list) => {
 };
 
 let decrement = (id) => {
-  let search = cart.find((x) => x.id == id);
-  if (search.quantity == 0) return;
-  else {
-    search.quantity -= 1;
-  }
+  console.log("🚀 ~ file: controller.js:123 ~ decrement ~ id:", id);
+  // let search = cart.find((x) => x.id == id);
+  // search.quantity -= 1;
+  // search.quantity == 0 && deleteItem(id);
+  // countProduct();
+  // renderCart(cart);
+  // let jsonData = JSON.stringify(cart);
+  // localStorage.setItem("list", jsonData);
+  let index = findIndex(id, cart);
+  console.log("🚀 ~ file: controller.js:140 ~ decrement ~ index:", index);
+  cart[index].quantity--;
+  cart[index].quantity == 0 && deleteItem(id);
   countProduct();
   renderCart(cart);
   let jsonData = JSON.stringify(cart);
@@ -139,9 +153,7 @@ let increment = (id) => {
   localStorage.setItem("list", jsonData);
 };
 
-let findIndex = (id, array) => {
-  return array.findIndex((item) => item.ma == id);
-};
+let findIndex = (id, arr) => arr.findIndex((item) => item.id == id);
 
 let showMessage = (title, text, icon) => {
   Swal.fire({
