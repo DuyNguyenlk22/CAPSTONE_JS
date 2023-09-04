@@ -27,9 +27,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <!-- my css -->
     <link rel="stylesheet" href="../../css/main.css" />
   </head>
+
   <body>
     <header class="fixed top-0 left-0 w-full">
       <div class="container h-20 flex justify-between items-center">
@@ -52,13 +59,14 @@
     </header>
     <section class="table__product pt-60 pb-60">
       <div class="container">
-        <div class="table__list overflow-x-auto">
-          <div class="relative">
+        <div class="table__list">
+          <div class="relative overflow-x-auto">
             <div class="table__title flex justify-between">
               <h1>Phone Management</h1>
 
               <!-- Button trigger modal -->
               <button
+                id="open-modal"
                 type="button"
                 class="inline-block leading-normal transition duration-150 ease-in-out"
                 data-te-toggle="modal"
@@ -114,6 +122,7 @@
                       </h5>
                       <!--Close button-->
                       <button
+                        id="close-button"
                         type="button"
                         class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                         data-te-modal-dismiss
@@ -139,81 +148,117 @@
                     <!--Modal body-->
                     <div data-te-modal-body-ref class="relative p-8 text-black">
                       <div class="form-group">
+                        <label for="">ID</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="id"
+                          placeholder=""
+                        />
+                        <span class="sp-thongbao text-red-600" id="tbID"></span>
+                      </div>
+                      <div class="form-group">
                         <label for="">Phone Name</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="phone-name"
                           placeholder=""
                         />
+                        <span
+                          class="sp-thongbao text-red-600"
+                          id="tbName"
+                        ></span>
                       </div>
                       <div class="form-group">
                         <label for="">Price</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="price"
                           placeholder=""
                         />
+                        <span
+                          class="sp-thongbao text-red-600"
+                          id="tbPrice"
+                        ></span>
                       </div>
                       <div class="form-group">
                         <label for="">Screen</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="screen"
                           placeholder=""
                         />
+                        <span
+                          class="sp-thongbao text-red-600"
+                          id="tbScreen"
+                        ></span>
                       </div>
                       <div class="form-group">
                         <label for="">Back Camera</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="back-camera"
                           placeholder=""
                         />
+                        <span class="sp-thongbao text-red-600" id="tbBC"></span>
                       </div>
                       <div class="form-group">
                         <label for="">Front Camera</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="font-camera"
                           placeholder=""
                         />
+                        <span class="sp-thongbao text-red-600" id="tbFC"></span>
                       </div>
                       <div class="form-group">
                         <label for="">Image Link</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="img"
                           placeholder=""
                         />
+                        <span
+                          class="sp-thongbao text-red-600"
+                          id="tbImg"
+                        ></span>
                       </div>
                       <div class="form-group">
                         <label for="">Description</label>
                         <input
                           type="text"
                           class="form-control"
-                          id=""
+                          id="description"
                           placeholder=""
                         />
+                        <span
+                          class="sp-thongbao text-red-600"
+                          id="tbDesc"
+                        ></span>
                       </div>
-                      <select name="" id="">
+                      <select name="" id="type">
                         <option value="">Select brands</option>
-                        <option value="">Apple</option>
-                        <option value="">Sam Sung</option>
+                        <option value="iphone">Apple</option>
+                        <option value="Samsung">Sam Sung</option>
                       </select>
+                      <span
+                        class="sp-thongbao text-red-600"
+                        id="tbSelect"
+                      ></span>
                     </div>
 
                     <!--Modal footer-->
                     <div
                       class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50 space-x-4"
                     >
-                      <button>Add Product</button>
-                      <button>Update Product</button>
+                      <button onclick="addPhone()">Add</button>
+                      <button onclick="updatePhone()">Update</button>
                     </div>
                   </div>
                 </div>
@@ -225,12 +270,43 @@
               <thead
                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-gray-500"
               >
+                <div class="input-group flex border border-black my-3 pl-5">
+                  <input
+                    class="w-full text-2xl text-left text-gray-500 dark:text-gray-400"
+                    type="text"
+                    class="form-control"
+                    onkeyup="timNhanVien()"
+                    placeholder="Tên điện thoại muốn tìm "
+                    id="searchName"
+                  />
+                  <div
+                    class="input-group-prepend flex flex-col justify-center w-10 h-10 text-center border border-solid bg-gray-400"
+                  >
+                    <span class="input-group-text" id="btnTimNV"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+                <div class="inline-flex">
+                  <button
+                    onclick="sapXepTangDan()"
+                    class="bg-sky-600 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+                  >
+                    Giá tăng dần
+                  </button>
+                  <button
+                    onclick="sapXepGiamDan()"
+                    class="bg-yellow-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+                  >
+                    Giá giảm dần
+                  </button>
+                </div>
                 <tr class="text-center">
-                  <th class="px-6 py-3">#</th>
+                  <th class="px-6 py-3">ID</th>
                   <th class="px-6 py-3">Name</th>
                   <th class="px-6 py-3">Price</th>
                   <th class="px-6 py-3">Photo</th>
-                  <th class="px-6 py-3">Discription</th>
+                  <th class="px-6 py-3">Description</th>
                   <th class="px-6 py-3">Action</th>
                 </tr>
               </thead>
@@ -402,5 +478,17 @@
     </footer>
     <!-- Tailwind Elements JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- toastify -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <!-- my js -->
+    <!-- validate -->
+    <script src="../controller/validate.js"></script>
+    <script src="../controller/controller.js"></script>
+    <script src="../controller/main.js"></script>
   </body>
 </html>
