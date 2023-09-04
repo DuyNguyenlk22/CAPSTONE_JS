@@ -25,10 +25,10 @@ let addPhone = () => {
     kiemTraRong("tbPrice", data.price) &&
     kiemTraDuLieuLaSo("tbPrice", data.price);
   let isValidScreen = kiemTraRong("tbScreen", data.screen);
-  let isValidBackCam = kiemTraRong("tbBC", data.back_camera);
-  let isValidFontCam = kiemTraRong("tbFC", data.font_camera);
+  let isValidBackCam = kiemTraRong("tbBC", data.backCamera);
+  let isValidFontCam = kiemTraRong("tbFC", data.frontCamera);
   let isValidIMG = kiemTraRong("tbImg", data.img);
-  let isValidDesc = kiemTraRong("tbDesc", data.description);
+  let isValidDesc = kiemTraRong("tbDesc", data.desc);
   let isValidSelect = kiemTraRong("tbSelect", data.type);
   //
   let isValid =

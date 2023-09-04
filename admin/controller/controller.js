@@ -52,20 +52,20 @@ let layThongTinTuForm = () => {
   let name = document.getElementById("phone-name").value;
   let price = document.getElementById("price").value;
   let screen = document.getElementById("screen").value;
-  let back_camera = document.getElementById("back-camera").value;
-  let font_camera = document.getElementById("font-camera").value;
+  let backCamera = document.getElementById("back-camera").value;
+  let frontCamera = document.getElementById("font-camera").value;
   let img = document.getElementById("img").value;
-  let description = document.getElementById("description").value;
+  let desc = document.getElementById("description").value;
   let type = document.getElementById("type").value;
   return {
     id,
     name,
     price,
     screen,
-    back_camera,
-    font_camera,
+    backCamera,
+    frontCamera,
     img,
-    description,
+    desc,
     type,
   };
 };
